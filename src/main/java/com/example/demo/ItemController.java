@@ -15,6 +15,7 @@ import java.util.List;
 public class ItemController {
 
     private final ItemRepository repository;
+    private Product product;
 
     @Autowired
     public ItemController(ItemRepository repository) {
@@ -23,6 +24,8 @@ public class ItemController {
 
     @GetMapping
     public List<Item> getItems(){
-        return repository.save();
+        product = new Product();
+        System.out.println(product);
+        return repository.findAll();
     }
 }
